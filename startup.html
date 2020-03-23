@@ -69,7 +69,16 @@
 	<hr class="border-b border-gray-100 opacity-25 my-0 py-0" />
 </nav>
 
+<div id="signup-message" class="text-center bg-green-500 py-8 w-full invisible"
+	style="position:absolute;top:0px;z-index:999;">
 
+	<div class="flex flex-wrap justify-center">
+		<div class="w-full text-center">
+			<strong>Thank you for signing up, we will keep you updated!</strong>
+		</div>
+	</div>
+
+</div>
 
 
 <!--Hero-->
@@ -450,6 +459,14 @@
   -->
 
 <script>
+
+	window.onload = function () {
+		var q = window.location.search.match(new RegExp('[?&]' + 'signup' + '=([^&#]*)'));
+		if (q != null) {
+			var signupMessage = document.getElementById("signup-message");
+			signupMessage.classList.remove("invisible");
+		}
+	}
 
 	var scrollpos = window.scrollY;
 	var header = document.getElementById("header");
